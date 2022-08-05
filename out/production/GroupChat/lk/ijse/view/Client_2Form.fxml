@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.controller.Client_2FormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="670.0" prefWidth="514.0" style="-fx-background-color: #0e0c32;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.Client_2FormController">
+   <children>
+      <AnchorPane layoutY="34.0" prefHeight="80.0" prefWidth="514.0" style="-fx-background-color: #272561;">
+         <children>
+            <Label layoutX="110.0" layoutY="20.0" text="Play Tech Group" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="64.0" fitWidth="69.0" layoutX="23.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/images/profile.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="34.0" layoutX="415.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/images/phone.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="34.0" layoutX="466.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/images/setting.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <JFXTextArea editable="false" focusColor="#0e0c32" layoutX="16.0" layoutY="130.0" prefHeight="458.0" prefWidth="481.0" stylesheets="@../assests/styles/fontColour.css" text="&#10;" unFocusColor="#0e0c32" />
+      <TextField layoutX="16.0" layoutY="605.0" prefHeight="46.0" prefWidth="313.0" promptText="Write a messege" style="-fx-background-color: white;" />
+      <JFXButton buttonType="RAISED" layoutX="431.0" layoutY="608.0" style="-fx-background-color: white;" text="Send">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <AnchorPane layoutX="325.0" layoutY="605.0" prefHeight="46.0" prefWidth="88.0" style="-fx-background-color: white; -fx-background-radius: 3;" />
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="378.0" layoutY="616.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/images/camara.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="34.0" layoutX="343.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/images/emoji.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>

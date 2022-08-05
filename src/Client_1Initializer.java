@@ -14,5 +14,6 @@ public class Client_1Initializer extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("lk/ijse/view/Client_1Form.fxml"))));
+        primaryStage.setTitle("Client 1");
         primaryStage.show();    }
 }
