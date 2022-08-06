@@ -4,9 +4,7 @@ import com.jfoenix.controls.JFXTextArea;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 
 public class Client_1FormController {
@@ -18,6 +16,7 @@ public class Client_1FormController {
     Socket socket;
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
+    BufferedReader bufferedReader;
     String message = "";
 
     public void initialize(){
@@ -27,6 +26,7 @@ public class Client_1FormController {
 
                  dataInputStream = new DataInputStream(socket.getInputStream());
                  dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                // bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
                 while (!message.equals("exit")) {
                     message = dataInputStream.readUTF();
