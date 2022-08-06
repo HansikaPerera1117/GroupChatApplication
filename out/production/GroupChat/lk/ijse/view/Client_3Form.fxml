@@ -18,11 +18,6 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <ImageView fitHeight="64.0" fitWidth="69.0" layoutX="23.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assests/images/profile.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="44.0" fitWidth="34.0" layoutX="415.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assests/images/phone.png" />
@@ -35,9 +30,9 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <JFXTextArea editable="false" focusColor="#0e0c32" layoutX="16.0" layoutY="130.0" prefHeight="458.0" prefWidth="481.0" stylesheets="@../assests/styles/fontColour.css" text="&#10;" unFocusColor="#0e0c32" />
-      <TextField layoutX="16.0" layoutY="605.0" prefHeight="46.0" prefWidth="313.0" promptText="Write a messege..." style="-fx-background-color: white;" />
-      <JFXButton buttonType="RAISED" layoutX="431.0" layoutY="608.0" style="-fx-background-color: white;" text="Send">
+      <JFXTextArea fx:id="txtArea" editable="false" focusColor="#0e0c32" layoutX="16.0" layoutY="130.0" prefHeight="458.0" prefWidth="481.0" stylesheets="@../assests/styles/fontColour.css" text="&#10;" unFocusColor="#0e0c32" />
+      <TextField fx:id="txtMsg" layoutX="16.0" layoutY="605.0" prefHeight="46.0" prefWidth="313.0" promptText="Write a messege..." style="-fx-background-color: white;" />
+      <JFXButton buttonType="RAISED" layoutX="431.0" layoutY="608.0" onAction="#btnSendOnAction" prefWidth="66.0" style="-fx-background-color: white;" text="Send">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -53,5 +48,19 @@
             <Image url="@../assests/images/emoji.png" />
          </image>
       </ImageView>
+      <Label layoutX="140.0" layoutY="87.0" text="3 members, 3 online" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="27.0" layoutY="43.0" prefHeight="63.0" prefWidth="66.0" style="-fx-background-color: white; -fx-background-radius: 100;">
+         <children>
+            <ImageView fitHeight="56.0" fitWidth="66.0" layoutX="6.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/images/group-chat.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
