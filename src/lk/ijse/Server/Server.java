@@ -1,11 +1,8 @@
-package lk.ijse.controller;
-
-import javafx.scene.Scene;
+package lk.ijse.Server;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 
 public class Server{
     final int PORT = 5000;
