@@ -4,11 +4,13 @@ import com.jfoenix.controls.JFXTextArea;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 
-public class Client_1FormController {
-
+public class ChatRoomFormController {
     public JFXTextArea txtArea;
     public TextField txtMsg;
 
@@ -22,10 +24,10 @@ public class Client_1FormController {
     public void initialize(){
         new Thread(()->{
             try {
-                 socket = new Socket("localhost", PORT);
+                socket = new Socket("localhost", PORT);
 
-                 dataInputStream = new DataInputStream(socket.getInputStream());
-                 dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                dataInputStream = new DataInputStream(socket.getInputStream());
+                dataOutputStream = new DataOutputStream(socket.getOutputStream());
                 // bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
                 while (!message.equals("exit")) {
