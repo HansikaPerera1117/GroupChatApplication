@@ -1,5 +1,7 @@
 package lk.ijse.Server;
 
+import javafx.scene.control.Alert;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -25,17 +27,18 @@ public class Server{
 
             }
         } catch(IOException e){
+            new Alert(Alert.AlertType.ERROR,"Something Wrong");
             e.printStackTrace();
         }
     }
 
     public void closeSererSocket(){
-
         try {
             if (serverSocket != null) {
                 serverSocket.close();
             }
         } catch (IOException e) {
+            new Alert(Alert.AlertType.ERROR,"Client Disconnected!");
             e.printStackTrace();
         }
     }
