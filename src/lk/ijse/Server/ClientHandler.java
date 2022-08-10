@@ -77,6 +77,7 @@ public class ClientHandler implements Runnable{
 
     public void removeClientHandler(){
         clientHandlers.remove(this);
+        System.out.println("Client has Disconnected!");
         broadcastMessage(clientUsername+ " has left the chat!\n");
     }
 }

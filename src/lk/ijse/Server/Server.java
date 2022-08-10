@@ -15,7 +15,6 @@ public class Server{
     }
 
     public void startServer() {
-
         try {
             while (!serverSocket.isClosed()) {
                 accept = serverSocket.accept();
@@ -45,6 +44,7 @@ public class Server{
 
     public static void main(String[] args) throws IOException {
         final int PORT = 5000;
+        System.out.println("Waiting for Client ...");
         ServerSocket serverSocket = new ServerSocket(PORT);
         Server server = new Server(serverSocket);
         server.startServer();

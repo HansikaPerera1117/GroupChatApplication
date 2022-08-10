@@ -21,13 +21,13 @@ public class ValidationUtil {
     }
 
     private static void removeError(TextField txtField,JFXButton btn) {
-        btn.setDisable(false);
+        btn.setVisible(true);
     }
 
     private static void addError(TextField txtField,JFXButton btn) {
         if (txtField.getText().length() > 0) {
-            btn.setDisable(true);
+            btn.setVisible(false);
         }
-        btn.setDisable(true);
+        btn.setVisible(false);
     }
 }

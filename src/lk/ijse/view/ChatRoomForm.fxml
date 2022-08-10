@@ -46,12 +46,7 @@
       </AnchorPane>
       <JFXTextArea fx:id="txtArea" editable="false" focusColor="#0e0c32" layoutX="16.0" layoutY="130.0" prefHeight="458.0" prefWidth="481.0" stylesheets="@../assests/styles/fontColour.css" unFocusColor="#0e0c32" />
       <TextField fx:id="txtMsg" layoutX="16.0" layoutY="605.0" onAction="#txtSendMsgOnAction" onKeyReleased="#textFields_Key_Released" prefHeight="46.0" prefWidth="313.0" promptText="Write a messege..." style="-fx-background-color: white;" />
-      <JFXButton fx:id="btnSendMsg" buttonType="RAISED" layoutX="431.0" layoutY="608.0" onAction="#btnSendOnAction" style="-fx-background-color: white;" text="Send">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </JFXButton>
-      <AnchorPane layoutX="325.0" layoutY="605.0" prefHeight="46.0" prefWidth="88.0" style="-fx-background-color: white; -fx-background-radius: 3;" />
+      <AnchorPane layoutX="325.0" layoutY="605.0" prefHeight="46.0" prefWidth="89.0" style="-fx-background-color: white; -fx-background-radius: 3;" />
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="379.0" layoutY="616.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/images/camara.png" />
@@ -62,5 +57,19 @@
             <Image url="@../assests/images/emoji.png" />
          </image>
       </ImageView>
+      <AnchorPane layoutX="431.0" layoutY="605.0" prefHeight="46.0" prefWidth="66.0" style="-fx-background-color: white; -fx-background-radius: 3;">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="34.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/images/mic.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="btnSendMsg" buttonType="RAISED" onAction="#btnSendOnAction" prefHeight="46.0" prefWidth="66.0" style="-fx-background-color: white;" text="Send">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

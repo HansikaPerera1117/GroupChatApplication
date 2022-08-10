@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.event.ActionEvent;
 import javafx.geometry.NodeOrientation;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -34,8 +33,7 @@ public class ChatRoomFormController extends Thread{
 
     public void initialize(){
 
-          btnSendMsg.setDisable(true);
-
+          btnSendMsg.setVisible(false);
           username = LogInFormController.userName;
 
         try {
@@ -123,7 +121,7 @@ public class ChatRoomFormController extends Thread{
         if(msg.equalsIgnoreCase("BYE") || (msg.equalsIgnoreCase("logout"))) {
             System.exit(0);
         }
-        btnSendMsg.setDisable(true);
+        btnSendMsg.setVisible(false);
     }
 
     public void btnSendOnAction(ActionEvent actionEvent) {
