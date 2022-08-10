@@ -1,18 +1,27 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.event.ActionEvent;
 import javafx.geometry.NodeOrientation;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.util.ValidationUtil;
+
 import java.io.*;
 import java.net.Socket;
+import java.util.LinkedHashMap;
+import java.util.regex.Pattern;
 
 public class ChatRoomFormController extends Thread{
 
     public AnchorPane chatRoomContext;
     public TextField txtMsg;
     public JFXTextArea txtArea;
+    public JFXButton btnSendMsg;
 
     private BufferedReader reader;
     private PrintWriter writer;
@@ -21,7 +30,11 @@ public class ChatRoomFormController extends Thread{
 
     final int PORT=5000;
 
+    private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
+
     public void initialize(){
+
+          btnSendMsg.setDisable(true);
 
           username = LogInFormController.userName;
 
@@ -37,6 +50,11 @@ public class ChatRoomFormController extends Thread{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //----------------validation-----------------------
+        Pattern msgPattern = Pattern.compile("^[A-z0-9 ,./?;-_`~\\<>*+'\"|!@#$%^&*(){}-]{1,}$");
+        map.put(txtMsg,msgPattern);
+
     }
 
     @Override
@@ -105,6 +123,7 @@ public class ChatRoomFormController extends Thread{
         if(msg.equalsIgnoreCase("BYE") || (msg.equalsIgnoreCase("logout"))) {
             System.exit(0);
         }
+        btnSendMsg.setDisable(true);
     }
 
     public void btnSendOnAction(ActionEvent actionEvent) {
@@ -113,5 +132,17 @@ public class ChatRoomFormController extends Thread{
 
     public void txtSendMsgOnAction(ActionEvent actionEvent) {
         sendMsg();
+    }
+
+    public void textFields_Key_Released(KeyEvent keyEvent) {
+        ValidationUtil.validate(map,btnSendMsg);
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            Object response =  ValidationUtil.validate(map,btnSendMsg);
+
+            if (response instanceof TextField) {
+                TextField textField = (TextField) response;
+                textField.requestFocus();
+            }
+        }
     }
 }
