@@ -7,9 +7,10 @@ import javafx.geometry.NodeOrientation;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.TextFlow;
 import lk.ijse.util.ValidationUtil;
-
 import java.io.*;
 import java.net.Socket;
 import java.util.LinkedHashMap;
@@ -81,37 +82,6 @@ public class ChatRoomFormController extends Thread{
         }
     }
 
-
-//    public void imgSendMsgOnAction(MouseEvent mouseEvent) throws IOException {
-//
-//        String msg = txtTextMsg.getText();
-//        writer.println(txtUserName.getText() + ": " + txtTextMsg.getText());
-//        txtTextArea.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-//        txtTextArea.appendText("Me: " + msg + "\n");
-//        txtTextMsg.clear();
-//        if(msg.equalsIgnoreCase("BYE") || (msg.equalsIgnoreCase("logout"))) {
-////            System.exit(0);
-//            Stage stage = (Stage) txtTextMsg.getScene().getWindow();
-//            stage.close();
-//        }
-//    }
-
-//    public void btnGoOnAction(ActionEvent actionEvent) {
-//        txtUserName.setText(txtNicName.getText().trim());
-//        pnePopUp.setVisible(false);
-//        apnChatForm.setVisible(true);
-//    }
-//
-//    public void AddClientOnAction(MouseEvent mouseEvent) throws IOException {
-//        Stage stage=new Stage();
-//        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ChatForm.fxml"))));
-//        stage.setResizable(false);
-//        //primaryStage.getIcons().add(new Image("location"));
-//        stage.setTitle("sample title");
-//        stage.centerOnScreen();
-//        stage.show();
-//
-//    }
     public void sendMsg(){
         String msg = txtMsg.getText();
         writer.println(username + ": " + txtMsg.getText());
@@ -129,7 +99,17 @@ public class ChatRoomFormController extends Thread{
     }
 
     public void txtSendMsgOnAction(ActionEvent actionEvent) {
-        sendMsg();
+        if (txtMsg.getLength() != 0){
+            sendMsg();
+        }
+
+    }
+
+    public void imagesOnAction(MouseEvent event) {
+    }
+
+    public void emojiOnAction(MouseEvent event) {
+
     }
 
     public void textFields_Key_Released(KeyEvent keyEvent) {
@@ -143,4 +123,6 @@ public class ChatRoomFormController extends Thread{
             }
         }
     }
+
+
 }
