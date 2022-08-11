@@ -1,7 +1,5 @@
 package lk.ijse.Server;
 
-import javafx.scene.control.Alert;
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;

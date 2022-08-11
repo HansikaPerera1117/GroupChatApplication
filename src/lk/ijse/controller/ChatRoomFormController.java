@@ -30,7 +30,6 @@ public class ChatRoomFormController extends Thread{
 
     public AnchorPane chatRoomContext;
     public TextField txtMsg;
-    //public JFXTextArea txtArea;
     public JFXButton btnSendMsg;
     public VBox vBox;
 
@@ -56,7 +55,7 @@ public class ChatRoomFormController extends Thread{
             System.out.println("Socket is connected with server!");
             reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             writer = new PrintWriter(socket.getOutputStream(), true);
-            writer.println("\n"+username + " has entered the chat!\n");
+            writer.println(username + " has entered the chat!\n");
 
             this.start();
 
@@ -91,14 +90,12 @@ public class ChatRoomFormController extends Thread{
                     }
             //======================================================================
 
-
                     Text text = new Text(st);
                     String firstChars = "";
                     if (st.length() > 3) {
                         firstChars = st.substring(0, 3);
 
                     }
-
 
                     if (firstChars.equalsIgnoreCase("img")) {
              //==============for the Images============================================
@@ -161,49 +158,18 @@ public class ChatRoomFormController extends Thread{
                             hBox.getChildren().add(flow);
 
                         } else {
-                            // text.setFill(Color.WHITE);
-                            // tempFlow.getStyleClass().add("tempFlow");
-                            // flow.getStyleClass().add("textFlow");
                             Text text2=new Text(fullMsg+":Me");
                             TextFlow flow2 = new TextFlow(text2);
                             hBox.setAlignment(Pos.BOTTOM_RIGHT);
                             hBox.getChildren().add(flow2);
                         }
-                        //  hBox.getStyleClass().add("hbox");
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
                     }
-
 
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
-
-       /* //==========================thibba eka======================
-        try {
-            while (true) {
-
-                String msg = reader.readLine();
-                String[] tokens = msg.split(" ");
-                String cmd = tokens[0];
-                System.out.println(cmd);
-                StringBuilder fullMsg = new StringBuilder();
-                for (int i = 1; i < tokens.length; i++) {
-                    fullMsg.append(tokens[i]);
-                }
-                System.out.println(fullMsg);
-
-                if(!cmd.equalsIgnoreCase(username+":")){
-                    txtArea.appendText(msg + "\n");
-                }
-
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
 
     }
 
@@ -214,21 +180,9 @@ public class ChatRoomFormController extends Thread{
         txtMsg.clear();
 
         if(msg.equalsIgnoreCase("BYE") || (msg.equalsIgnoreCase("logout"))) {
-            System.exit(0);
-
-        }
-
-       /* //===========thibba eka===========
-        String msg = txtMsg.getText();
-        writer.println(username + ": " + txtMsg.getText());
-        txtArea.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-        txtArea.appendText("Me: " + msg + "\n");
-        txtMsg.clear();
-        if(msg.equalsIgnoreCase("BYE") || (msg.equalsIgnoreCase("logout"))) {
+            writer.println("\n"+username + " has left the chat!\n");
             System.exit(0);
         }
-        */
-
         btnSendMsg.setVisible(false);
     }
 
@@ -240,7 +194,6 @@ public class ChatRoomFormController extends Thread{
         if (txtMsg.getLength() != 0){
             sendMsg();
         }
-
     }
 
     public void imagesOnAction(MouseEvent event) {
@@ -249,10 +202,6 @@ public class ChatRoomFormController extends Thread{
         fileChooser.setTitle("Open Image");
         this.filePath = fileChooser.showOpenDialog(stage);
         writer.println(username + " " + "img" + filePath.getPath());
-    }
-
-    public void emojiOnAction(MouseEvent event) {
-
     }
 
     public void textFields_Key_Released(KeyEvent keyEvent) {

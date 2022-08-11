@@ -9,7 +9,6 @@ public class ClientHandler extends Thread{
     private Socket socket;
     private BufferedReader reader;
     private PrintWriter writer;
-    private String clientUsername;
 
     ObjectOutputStream oos = null;
     ObjectInputStream ois = null;
@@ -49,7 +48,6 @@ public class ClientHandler extends Thread{
                 e.printStackTrace();
             }
         }
-
     }
-    
+
 }
