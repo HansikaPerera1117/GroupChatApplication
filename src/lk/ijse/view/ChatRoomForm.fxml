@@ -66,10 +66,14 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <ScrollPane layoutX="19.0" layoutY="124.0" prefHeight="460.0" prefWidth="478.0">
-         <content>
-            <VBox fx:id="vBox" prefHeight="444.0" prefWidth="462.0" />
-         </content>
+      <ScrollPane layoutX="16.0" layoutY="129.0" prefHeight="458.0" prefWidth="483.0" style="-fx-background-color: #0e0c32;" stylesheets="@../assests/styles/fontColour.css">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="456.0" prefWidth="482.0" style="-fx-background-color: #0e0c32;" stylesheets="@../assests/styles/fontColour.css">
+               <children>
+                  <VBox fx:id="vBox" prefHeight="438.0" prefWidth="464.0" stylesheets="@../assests/styles/fontColour.css" />
+               </children>
+            </AnchorPane>
+        </content>
       </ScrollPane>
    </children>
 </AnchorPane>

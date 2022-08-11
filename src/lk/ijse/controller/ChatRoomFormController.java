@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
@@ -119,6 +120,7 @@ public class ChatRoomFormController extends Thread{
                             hBox.setAlignment(Pos.CENTER_LEFT);
 
                             Text text1=new Text("  "+cmd+" :");
+                            text1.setFill(Color.WHITE);
                             hBox.getChildren().add(text1);
                             hBox.getChildren().add(imageView);
 
@@ -133,11 +135,13 @@ public class ChatRoomFormController extends Thread{
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
 
                     } else {
-
+                        text.setFill(Color.WHITE);
+                        text.getStyleClass().add("message");
                         TextFlow tempFlow = new TextFlow();
 
                         if (!cmd.equalsIgnoreCase(username + ":")) {
                             Text txtName = new Text(cmd + " ");
+                            txtName.setFill(Color.WHITE);
                             txtName.getStyleClass().add("txtName");
                             tempFlow.getChildren().add(txtName);
                         }
@@ -151,14 +155,20 @@ public class ChatRoomFormController extends Thread{
 
              //=======================================================================================
 
-                        if (!cmd.equalsIgnoreCase(username + ":")) {
+                    if (!cmd.equalsIgnoreCase(username + ":")) {
 
+                           tempFlow.getStyleClass().add("tempFlowFlipped");
+                           flow.getStyleClass().add("textFlowFlipped");
                             vBox.setAlignment(Pos.TOP_LEFT);
                             hBox.setAlignment(Pos.CENTER_LEFT);
                             hBox.getChildren().add(flow);
 
                         } else {
+                             text.setFill(Color.WHITE);
+                             tempFlow.getStyleClass().add("tempFlow");
+                             flow.getStyleClass().add("textFlow");
                             Text text2=new Text(fullMsg+":Me");
+                            text2.setFill(Color.WHITE);
                             TextFlow flow2 = new TextFlow(text2);
                             hBox.setAlignment(Pos.BOTTOM_RIGHT);
                             hBox.getChildren().add(flow2);
