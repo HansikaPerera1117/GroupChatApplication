@@ -40,6 +40,7 @@ public class ClientHandler extends Thread{
         }
         finally {
             try {
+                System.out.println("Client has Disconnected!");
                 reader.close();
                 writer.close();
                 socket.close();
