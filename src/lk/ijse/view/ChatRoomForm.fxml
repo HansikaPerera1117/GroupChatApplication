@@ -73,7 +73,7 @@
       </AnchorPane>
       <ScrollPane layoutX="19.0" layoutY="124.0" prefHeight="460.0" prefWidth="478.0">
          <content>
-            <VBox fx:id="vBox" prefHeight="430.0" prefWidth="451.0" />
+            <VBox fx:id="vBox" prefHeight="444.0" prefWidth="462.0" />
          </content>
       </ScrollPane>
    </children>

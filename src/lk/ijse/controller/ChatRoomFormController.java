@@ -56,7 +56,7 @@ public class ChatRoomFormController extends Thread{
             System.out.println("Socket is connected with server!");
             reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             writer = new PrintWriter(socket.getOutputStream(), true);
-            writer.println("\t\t\t\t" + username);
+            writer.println("\n"+username + " has entered the chat!");
 
             this.start();
 
@@ -79,20 +79,17 @@ public class ChatRoomFormController extends Thread{
                     String[] tokens = msg.split(" ");
                     String cmd = tokens[0];
 
-//                txtTextArea.appendText(cmd+"\n");
                     StringBuilder fullMsg = new StringBuilder();
                     for (int i = 1; i < tokens.length; i++) {
                         fullMsg.append(tokens[i]);
                     }
-
 
                     String[] msgToAr = msg.split(" ");
                     String st = "";
                     for (int i = 0; i < msgToAr.length - 1; i++) {
                         st += msgToAr[i + 1] + " ";
                     }
-//======================================================================
-
+            //======================================================================
 
 
                     Text text = new Text(st);
@@ -104,11 +101,9 @@ public class ChatRoomFormController extends Thread{
 
 
                     if (firstChars.equalsIgnoreCase("img")) {
-                        //for the Images
+             //==============for the Images============================================
 
                         st = st.substring(3, st.length() - 1);
-
-
 
                         File file = new File(st);
                         Image image = new Image(file.toURI().toString());
@@ -118,16 +113,13 @@ public class ChatRoomFormController extends Thread{
                         imageView.setFitHeight(150);
                         imageView.setFitWidth(200);
 
-
                         HBox hBox = new HBox(10);
                         hBox.setAlignment(Pos.BOTTOM_RIGHT);
-
 
                         if (!cmd.equalsIgnoreCase(username)) {
 
                             vBox.setAlignment(Pos.TOP_LEFT);
                             hBox.setAlignment(Pos.CENTER_LEFT);
-
 
                             Text text1=new Text("  "+cmd+" :");
                             hBox.getChildren().add(text1);
@@ -138,17 +130,13 @@ public class ChatRoomFormController extends Thread{
                             hBox.getChildren().add(imageView);
                             Text text1=new Text(": Me ");
                             hBox.getChildren().add(text1);
-                            System.out.println(fullMsg);
 
                         }
 
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
 
-
                     } else {
-                        //For the Text
-//                    text.setFill(Color.WHITE);
-                        //   text.getStyleClass().add("message");
+
                         TextFlow tempFlow = new TextFlow();
 
                         if (!cmd.equalsIgnoreCase(username + ":")) {
@@ -164,28 +152,22 @@ public class ChatRoomFormController extends Thread{
 
                         HBox hBox = new HBox(12); //12
 
-                        //=================================================
-
+             //=======================================================================================
 
                         if (!cmd.equalsIgnoreCase(username + ":")) {
 
-                            //  tempFlow.getStyleClass().add("tempFlowFlipped");
-                            //  flow.getStyleClass().add("textFlowFlipped");
                             vBox.setAlignment(Pos.TOP_LEFT);
                             hBox.setAlignment(Pos.CENTER_LEFT);
                             hBox.getChildren().add(flow);
-                            System.out.println(flow);
 
                         } else {
                             // text.setFill(Color.WHITE);
                             // tempFlow.getStyleClass().add("tempFlow");
                             // flow.getStyleClass().add("textFlow");
                             Text text2=new Text(fullMsg+":Me");
-                            System.out.println(text2);
                             TextFlow flow2 = new TextFlow(text2);
                             hBox.setAlignment(Pos.BOTTOM_RIGHT);
                             hBox.getChildren().add(flow2);
-                            System.out.println(flow2);
                         }
                         //  hBox.getStyleClass().add("hbox");
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));

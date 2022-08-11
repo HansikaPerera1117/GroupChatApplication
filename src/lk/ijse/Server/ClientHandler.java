@@ -9,6 +9,7 @@ public class ClientHandler extends Thread{
     private Socket socket;
     private BufferedReader reader;
     private PrintWriter writer;
+    private String clientUsername;
 
     ObjectOutputStream oos = null;
     ObjectInputStream ois = null;
@@ -19,6 +20,8 @@ public class ClientHandler extends Thread{
             this.clients = clients;
             this.reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.writer = new PrintWriter(socket.getOutputStream(), true);
+            clientUsername = reader.readLine();
+            broadcastMessage(clientUsername + " has entered the chat!");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -40,6 +43,7 @@ public class ClientHandler extends Thread{
         }
         finally {
             try {
+                removeClientHandler();
                 System.out.println("Client has Disconnected!");
                 reader.close();
                 writer.close();
@@ -49,5 +53,19 @@ public class ClientHandler extends Thread{
             }
         }
 
+    }
+
+    public void broadcastMessage(String messageToSend){
+
+        for (ClientHandler clientHandler : clients){
+            if (!clientHandler.clientUsername.equals(clientUsername)){
+                  clientHandler.writer.write(messageToSend);
+                  clientHandler.writer.flush();
+            }
+        }
+    }
+    public void removeClientHandler(){
+        clients.remove(this);
+        broadcastMessage( clientUsername + " has left the chat!");
     }
 }
