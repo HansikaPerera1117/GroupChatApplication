@@ -127,7 +127,8 @@ public class ChatRoomFormController extends Thread{
                         } else {
                             hBox.setAlignment(Pos.BOTTOM_RIGHT);
                             hBox.getChildren().add(imageView);
-                            Text text1=new Text(": Me ");
+                            Text text1=new Text(": Me   ");
+                            text1.setFill(Color.WHITE);
                             hBox.getChildren().add(text1);
 
                         }
@@ -167,7 +168,7 @@ public class ChatRoomFormController extends Thread{
                              text.setFill(Color.WHITE);
                              tempFlow.getStyleClass().add("tempFlow");
                              flow.getStyleClass().add("textFlow");
-                            Text text2=new Text(fullMsg+":Me");
+                            Text text2=new Text(fullMsg+":Me   ");
                             text2.setFill(Color.WHITE);
                             TextFlow flow2 = new TextFlow(text2);
                             hBox.setAlignment(Pos.BOTTOM_RIGHT);
