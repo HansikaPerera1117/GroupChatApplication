@@ -56,7 +56,7 @@ public class ChatRoomFormController extends Thread{
             System.out.println("Socket is connected with server!");
             reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             writer = new PrintWriter(socket.getOutputStream(), true);
-            writer.println("\n"+username + " has entered the chat!");
+            writer.println("\n"+username + " has entered the chat!\n");
 
             this.start();
 
