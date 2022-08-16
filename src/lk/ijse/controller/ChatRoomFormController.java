@@ -73,6 +73,7 @@ public class ChatRoomFormController extends Thread{
     @Override
     public void run(){
             try {
+
                 while (true) {
 
                     String msg = reader.readLine();
@@ -99,6 +100,7 @@ public class ChatRoomFormController extends Thread{
                     }
 
                     if (firstChars.equalsIgnoreCase("img")) {
+
              //==============for the Images============================================
 
                         st = st.substring(3, st.length() - 1);
@@ -137,13 +139,11 @@ public class ChatRoomFormController extends Thread{
 
                     } else {
                         text.setFill(Color.WHITE);
-                        text.getStyleClass().add("message");
                         TextFlow tempFlow = new TextFlow();
 
                         if (!cmd.equalsIgnoreCase(username + ":")) {
                             Text txtName = new Text(cmd + " ");
                             txtName.setFill(Color.WHITE);
-                            txtName.getStyleClass().add("txtName");
                             tempFlow.getChildren().add(txtName);
                         }
 
@@ -157,17 +157,12 @@ public class ChatRoomFormController extends Thread{
              //=======================================================================================
 
                     if (!cmd.equalsIgnoreCase(username + ":")) {
-
-                           tempFlow.getStyleClass().add("tempFlowFlipped");
-                           flow.getStyleClass().add("textFlowFlipped");
                             vBox.setAlignment(Pos.TOP_LEFT);
                             hBox.setAlignment(Pos.CENTER_LEFT);
                             hBox.getChildren().add(flow);
 
                         } else {
-                             text.setFill(Color.WHITE);
-                             tempFlow.getStyleClass().add("tempFlow");
-                             flow.getStyleClass().add("textFlow");
+                            text.setFill(Color.WHITE);
                             Text text2=new Text(fullMsg+":Me   ");
                             text2.setFill(Color.WHITE);
                             TextFlow flow2 = new TextFlow(text2);
